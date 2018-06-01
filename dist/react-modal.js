@@ -563,7 +563,10 @@ var Modal = function (_Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Modal.__proto__ || Object.getPrototypeOf(Modal)).call.apply(_ref, [this].concat(args))), _this), _this.removePortal = function () {
       !isReact16 && _reactDom2.default.unmountComponentAtNode(_this.node);
       var parent = getParentElement(_this.props.parentSelector);
-      parent.removeChild(_this.node);
+	//Modifica per IE
+      try {
+          parent.removeChild(_this.node);
+      } catch(e) {}
     }, _this.portalRef = function (ref) {
       _this.portal = ref;
     }, _this.renderPortal = function (props) {
