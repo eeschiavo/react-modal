@@ -170,7 +170,9 @@ class Modal extends Component {
   removePortal = () => {
     !isReact16 && ReactDOM.unmountComponentAtNode(this.node);
     const parent = getParentElement(this.props.parentSelector);
+    try {
     parent.removeChild(this.node);
+    } catch(e) {}
   };
 
   portalRef = ref => {
